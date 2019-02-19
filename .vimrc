@@ -30,8 +30,10 @@ let g:autoformat_autoindent = 0 " Turn off auto indent when saving files
 "---------------------------------- Keybinds ----------------------------------"
 
 " Keybind settings
-nnoremap m :bnext<CR>
-nnoremap n :bprev<CR>
+nnoremap m :bnext<CR>           " Move to the next buffer
+nnoremap n :bprev<CR>           " Move to the prev buffer
+nnoremap B ^                    " Move to the beginning of a line
+nnoremap E $                    " Move to the end of a line
 
 "------------------------------ Regular Settings ------------------------------"
 
@@ -41,6 +43,7 @@ set number                      " Enable line numbers
 set showcmd                     " Show the last command entered
 set t_Co=256                    " Enable 256 colors in vim
 set expandtab                   " Tabs are spaces
+set showmatch                   " Highlight matching [{()}]
 set tabstop=2                   " Number of spaces a tab counts for
 set cursorline                  " Highlight the current line
 set softtabstop=2               " Number of spaces in tab when editing
