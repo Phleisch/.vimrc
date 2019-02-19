@@ -1,5 +1,5 @@
-1. cd into .vim/ which should be located in your home directory.
-2. Install the file in .vim/
-3. Open the .vimrc file with vim.
-4. Type the command ":so %"
-5. Type the command ":PlugInstall"
+cd into .vim/ which should be located in your home directory.
+Install the file in .vim/
+Open the .vimrc file with vim.
+Type the command `:so %`
+Type the command `:PlugInstall`
