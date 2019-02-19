@@ -1,46 +1,48 @@
+"--------------------- 'Manual' Installations ----------------------------------
+
 " Automate the installation of vim-plug
 if empty(glob('~/.vim/autoload/plug.vim'))
   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
-    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
+" Install the abstract color theme if it is not installed
+if empty(glob('~/.vim/colors/abstract.vim'))
+  silent !curl -fLo ~/.vim/colors/abstract.vim --create-dirs
+  \ 'https://raw.githubusercontent.com/jdsimcoe/abstract.vim/master/colors/abstract.vim'
+endif
+
+"--------------------------- Install Plugins -----------------------------------
+
 call plug#begin()
-
-" Dracula colorscheme
-Plug 'dracula/vim',{'as':'dracula'}
-
-" Cooler status, and visible vim windows
-Plug 'vim-airline/vim-airline'
-
-" Themes for vim-airline
-Plug 'vim-airline/vim-airline-themes'
-
-" Vim directory
-Plug 'scrooloose/nerdtree'
-
-" Initialize plugin system
+" Need to manually download default format programs
+Plug 'Chiel92/vim-autoformat' " Format files based on default format programs
+au BufWrite * :Autoformat     " Automatically format files on save
 call plug#end()
+
+"--------------------------- Plugin Settings -----------------------------------
+
+" vim autoformat
+let g:autoformat_retab = 0      " Turn off auto retab when saving files
+let g:autoformat_autoindent = 0 " Turn off auto indent when saving files
+
+"-------------------------------- Keybinds -------------------------------------
 
 " Keybind settings
 nnoremap m :bnext<CR>
 nnoremap n :bprev<CR>
-nnoremap J :NERDTreeToggle<CR>
+
+"--------------------------- Regular Settings ----------------------------------
 
 " Regular settings follow
-set number          " Enable line numbers
-set tabstop=4       " Number of spaces a tab counts for
-set softtabstop=4   " Number of spaces in tab when editing
-set expandtab       " Tabs are spaces
-set showcmd 		" Show the last command entered
-set cursorline      " Highlight the current line
-set guifont='hack'  " Set the font
-set colorcolumn=80  " Set a right bound
-syntax on           " Enable syntax processing
-
-" Plug-in settings follow
-let g:airline_theme='dracula'
-let g:airline_powerline_fonts = 1
-let g:airline#extensions#tabline#enabled = 1
-
-colorscheme dracula " Set color scheme to Dracula
+syntax on                       " Enable syntax processing
+set number                      " Enable line numbers
+set showcmd                     " Show the last command entered
+set expandtab                   " Tabs are spaces
+set tabstop=2                   " Number of spaces a tab counts for
+set cursorline                  " Highlight the current line
+set softtabstop=2               " Number of spaces in tab when editing
+set guifont='hack'              " Set the font
+set colorcolumn=80              " Set a right bound
+colorscheme abstract            " Set colorscheme to abstract
