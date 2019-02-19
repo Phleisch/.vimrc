@@ -10,7 +10,7 @@ endif
 " Install the abstract color theme if it is not installed
 if empty(glob('~/.vim/colors/abstract.vim'))
   silent !curl -fLo ~/.vim/colors/abstract.vim --create-dirs
-  \ 'https://raw.githubusercontent.com/jdsimcoe/abstract.vim/master/colors/abstract.vim'
+  \ https://raw.githubusercontent.com/jdsimcoe/abstract.vim/master/colors/abstract.vim
 endif
 
 "------------------------------ Install Plug-Ins ------------------------------"
@@ -39,10 +39,12 @@ nnoremap n :bprev<CR>
 syntax on                       " Enable syntax processing
 set number                      " Enable line numbers
 set showcmd                     " Show the last command entered
+set t_Co=256                    " Enable 256 colors in vim
 set expandtab                   " Tabs are spaces
 set tabstop=2                   " Number of spaces a tab counts for
 set cursorline                  " Highlight the current line
 set softtabstop=2               " Number of spaces in tab when editing
 set guifont='hack'              " Set the font
 set colorcolumn=80              " Set a right bound
+set background=dark             " Set the colorscheme to a dark theme
 colorscheme abstract            " Set colorscheme to abstract
