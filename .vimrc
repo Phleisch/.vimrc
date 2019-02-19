@@ -1,4 +1,4 @@
-"--------------------- 'Manual' Installations ----------------------------------
+"--------------------------- 'Manual' Installations ---------------------------"
 
 " Automate the installation of vim-plug
 if empty(glob('~/.vim/autoload/plug.vim'))
@@ -13,7 +13,7 @@ if empty(glob('~/.vim/colors/abstract.vim'))
   \ 'https://raw.githubusercontent.com/jdsimcoe/abstract.vim/master/colors/abstract.vim'
 endif
 
-"--------------------------- Install Plugins -----------------------------------
+"------------------------------ Install Plug-Ins ------------------------------"
 
 call plug#begin()
 " Need to manually download default format programs
@@ -21,19 +21,19 @@ Plug 'Chiel92/vim-autoformat' " Format files based on default format programs
 au BufWrite * :Autoformat     " Automatically format files on save
 call plug#end()
 
-"--------------------------- Plugin Settings -----------------------------------
+"------------------------------ Plug-In Settings ------------------------------"
 
 " vim autoformat
 let g:autoformat_retab = 0      " Turn off auto retab when saving files
 let g:autoformat_autoindent = 0 " Turn off auto indent when saving files
 
-"-------------------------------- Keybinds -------------------------------------
+"---------------------------------- Keybinds ----------------------------------"
 
 " Keybind settings
 nnoremap m :bnext<CR>
 nnoremap n :bprev<CR>
 
-"--------------------------- Regular Settings ----------------------------------
+"------------------------------ Regular Settings ------------------------------"
 
 " Regular settings follow
 syntax on                       " Enable syntax processing
