@@ -1,8 +1,8 @@
-# Linux
+# Installation
 
-1. cd into .vim/ which should be located in your home directory.
+1. CD into your home directory (should contain a .vim folder)
 
-2. Install the file in .vim/
+2. Type the command `curl > .vimrc`
 
 3. Open the .vimrc file with vim.
 
@@ -10,8 +10,4 @@
 
 5. Type the command `:PlugInstall`
 
-# Windows
-
-1. Go to your home directory (should contain a .vim directory) and create the file `_vimrc`
-
-2. TODO - finish this README
+6. You're done
