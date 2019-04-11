@@ -7,18 +7,13 @@ if empty(glob('~/.vim/autoload/plug.vim'))
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
-" Install the abstract color theme if it is not installed
-if empty(glob('~/.vim/colors/abstract.vim'))
-  silent !curl -fLo ~/.vim/colors/abstract.vim --create-dirs
-  \ https://raw.githubusercontent.com/jdsimcoe/abstract.vim/master/colors/abstract.vim
-endif
-
 "------------------------------ Install Plug-Ins ------------------------------"
 
 call plug#begin()
 " Need to manually download default format programs
 Plug 'Chiel92/vim-autoformat' " Format files based on default format programs
 au BufWrite * :Autoformat     " Automatically format files on save
+Plug 'dracula/vim', { 'as': 'dracula' }
 call plug#end()
 
 "------------------------------ Plug-In Settings ------------------------------"
@@ -44,10 +39,10 @@ set showcmd                     " Show the last command entered
 set t_Co=256                    " Enable 256 colors in vim
 set expandtab                   " Tabs are spaces
 set showmatch                   " Highlight matching [{()}]
-set tabstop=2                   " Number of spaces a tab counts for
+set tabstop=4                   " Number of spaces a tab counts for
 set cursorline                  " Highlight the current line
-set softtabstop=2               " Number of spaces in tab when editing
+set softtabstop=4               " Number of spaces in tab when editing
 set guifont='hack'              " Set the font
 set colorcolumn=80              " Set a right bound
 set background=dark             " Set the colorscheme to a dark theme
-colorscheme abstract            " Set colorscheme to abstract
+colorscheme dracula             " Set colorscheme to dracula
