@@ -1,48 +1,56 @@
-"--------------------------- 'Manual' Installations ---------------------------"
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"					Indentation Rules							"
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" New lines inherit same indentation as previous lines
+set autoindent
 
-" Automate the installation of vim-plug
-if empty(glob('~/.vim/autoload/plug.vim'))
-  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
-  \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
-endif
+" Set tabs to have the width of 4 spaces
+set tabstop=4
 
-"------------------------------ Install Plug-Ins ------------------------------"
+" Convert tabs to spaces
+set expandtab
 
-call plug#begin()
-" Need to manually download default format programs
-Plug 'Chiel92/vim-autoformat' " Format files based on default format programs
-au BufWrite * :Autoformat     " Automatically format files on save
-Plug 'dracula/vim', { 'as': 'dracula' }
-call plug#end()
+" Enable indentation rules that are specific to file-type
+" set filetype indent on
 
-"------------------------------ Plug-In Settings ------------------------------"
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                   Search Rules                                "
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Enable search highlighting
+set hlsearch
 
-" vim autoformat
-let g:autoformat_retab = 0      " Turn off auto retab when saving files
-let g:autoformat_autoindent = 0 " Turn off auto indent when saving files
+" Ignore case when searching
+set ignorecase
 
-"---------------------------------- Keybinds ----------------------------------"
+" Switch to case-sensitive search when search includes upper-case
+set smartcase
 
-" Keybind settings
-nnoremap m :bnext<CR>           " Move to the next buffer
-nnoremap n :bprev<CR>           " Move to the prev buffer
-nnoremap B ^                    " Move to the beginning of a line
-nnoremap E $                    " Move to the end of a line
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                   Text Options                                "
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Enable syntax highlighting
+syntax enable
 
-"------------------------------ Regular Settings ------------------------------"
+" Enable line wrapping
+set wrap
 
-" Regular settings follow
-syntax on                       " Enable syntax processing
-set number                      " Enable line numbers
-set showcmd                     " Show the last command entered
-set t_Co=256                    " Enable 256 colors in vim
-set expandtab                   " Tabs are spaces
-set showmatch                   " Highlight matching [{()}]
-set tabstop=4                   " Number of spaces a tab counts for
-set cursorline                  " Highlight the current line
-set softtabstop=4               " Number of spaces in tab when editing
-set guifont='hack'              " Set the font
-set colorcolumn=80              " Set a right bound
-set background=dark             " Set the colorscheme to a dark theme
-colorscheme dracula             " Set colorscheme to dracula
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                   User Interface Options                      "
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Show cursor position
+set ruler
+
+" Change color scheme
+colorscheme tender
+
+" Highlight the line currently under the cursor
+" set cursorline
+
+" Show line numbers in the sidebar
+set number
+
+" Set title of window to reflect the file being edited
+set title
+
+" Access colors present in 256 color space
+let base16colorspace=256
